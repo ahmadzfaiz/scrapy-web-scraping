@@ -1,9 +1,6 @@
 import scrapy
 from books.items import BooksItem
 
-'''
-Simple guide to scrape data and yield in the terminal 
-'''
 
 class HomePageSpider(scrapy.Spider):
     name = "home_page"

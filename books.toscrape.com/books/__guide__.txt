@@ -1,0 +1,6 @@
+1. Create spider: home_page.py --> basic scrape
+2. Create item: BooksItem --> basic item
+3. Create spider: art_book.py --> scrape specific category
+4. Create spider: children_book.py --> scrape specific category > next page
+5. Create spider: fantasy_book.py --> scrape specific category > detail page > next page
+6. Create item: BookDetailsItem --> detail item

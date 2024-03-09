@@ -11,7 +11,7 @@ class BooksItem(scrapy.Item):
     price = scrapy.Field()
 
 class BookDetailsItem(scrapy.Item):
-    upc = scrapy.Field()
+    id = scrapy.Field()
     product = scrapy.Field()
     price_excl_tax = scrapy.Field()
     price_incl_tax = scrapy.Field()
