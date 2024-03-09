@@ -1,9 +1,4 @@
-import os
-from dotenv import load_dotenv
-
-load_dotenv('.env')
-
-# Scrapy settings for bookscraper project
+# Scrapy settings for books project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -12,42 +7,18 @@ load_dotenv('.env')
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "bookscraper"
+BOT_NAME = "books"
 
-SPIDER_MODULES = ["bookscraper.spiders"]
-NEWSPIDER_MODULE = "bookscraper.spiders"
+SPIDER_MODULES = ["books.spiders"]
+NEWSPIDER_MODULE = "books.spiders"
 
-# FEEDS = {
-#   'bookdata.json': {'format': 'json'},
-#   'bookdata.csv': {'format': 'csv'}
-# }
-
-# ScrapeOps Settings as Middleware for User Agent and/or Browser Header
-# See https://scrapeops.io/
-SCRAPEOPS_API_KEY = os.getenv('SCRAPEOPS_API_KEY')
-SCRAPEOPS_NUM_RESULTS = 5
-
-SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = os.getenv('SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT')
-SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
-
-SCRAPEOPS_FAKE_BROWSER_HEADER_ENDPOINT = os.getenv('SCRAPEOPS_FAKE_BROWSER_HEADER_ENDPOINT')
-SCRAPEOPS_FAKE_BROWSER_HEADER_ENABLED = True
-
-SCRAPEOPS_PROXY_ENABLED = True
-SCRAPEOPS_PROXY_SETTINGS = {'country': 'jp'}
-
-# PostgreSQL connection settings
-DATABASE = {
-  'default': {
-    'host': os.getenv('PG_HOST'), 
-    'user': os.getenv('PG_USER'), 
-    'password': os.getenv('PG_PASS'),  
-    'dbname': os.getenv('PG_DB')
-  }
+# Set Output Format
+FEEDS = {
+  'output/data.csv': {'format': 'csv'}
 }
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "bookscraper (+http://www.yourdomain.com)"
+#USER_AGENT = "books (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -78,19 +49,14 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "bookscraper.middlewares.BookscraperSpiderMiddleware": 543,
+#    "books.middlewares.BooksSpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-  # 'bookscraper.middlewares.BookscraperDownloaderMiddleware': 543,
-  # 'bookscraper.middlewares.ScrapeOpsFakeUserAgentMiddleware': 400,
-  'bookscraper.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400,
-
-  # ScrapeOps middlewares
-  'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
-}
+#DOWNLOADER_MIDDLEWARES = {
+#    "books.middlewares.BooksDownloaderMiddleware": 543,
+#}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -100,10 +66,9 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-  "bookscraper.pipelines.BookscraperPipeline": 300,
-  # "bookscraper.pipelines.SaveToPostgresPipeline": 400,
-}
+#ITEM_PIPELINES = {
+#    "books.pipelines.BooksPipeline": 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
