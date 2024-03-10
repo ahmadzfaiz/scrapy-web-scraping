@@ -4,3 +4,8 @@
 4. Create spider: children_book.py --> scrape specific category > next page
 5. Create spider: fantasy_book.py --> scrape specific category > detail page > next page
 6. Create item: BookDetailsItem --> detail item
+7. Create pipeline: CleanBooksPipeline --> cleaning the data before saved
+8. Create pipeline: SaveToPostgresPipeline --> saving the data to postgresql database
+9. Create middleware: ScrapeOpsFakeUserAgentMiddleware --> access the data using fake user-agent
+10. Create middleware: ScrapeOpsFakeBrowserHeaderAgentMiddleware --> access the data using fake browser-header
+11. Use ScrapeOps middleware: ScrapeOpsScrapyProxySdk --> access the data using fake IP address

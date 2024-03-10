@@ -6,6 +6,10 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BOT_NAME = "books"
 
@@ -14,8 +18,33 @@ NEWSPIDER_MODULE = "books.spiders"
 
 # Set Output Format
 FEEDS = {
-  'output/data.csv': {'format': 'csv'}
+  'output/data.json': {'format': 'json'}
 }
+
+# PostgreSQL connection settings
+PG_DATABASE = {
+  'default': {
+    'host': os.getenv('PG_HOST'), 
+    'user': os.getenv('PG_USER'), 
+    'password': os.getenv('PG_PASS'),  
+    'dbname': os.getenv('PG_DB'),
+    'port': os.getenv('PG_PORT')
+  }
+}
+
+# ScrapeOps Settings as Middleware for User Agent and/or Browser Header
+# See https://scrapeops.io/
+SCRAPEOPS_API_KEY = os.getenv('SCRAPEOPS_API_KEY')
+SCRAPEOPS_NUM_RESULTS = 5
+
+SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = os.getenv('SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT')
+SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
+
+SCRAPEOPS_FAKE_BROWSER_HEADER_ENDPOINT = os.getenv('SCRAPEOPS_FAKE_BROWSER_HEADER_ENDPOINT')
+SCRAPEOPS_FAKE_BROWSER_HEADER_ENABLED = True
+
+SCRAPEOPS_PROXY_ENABLED = True
+SCRAPEOPS_PROXY_SETTINGS = {'country': 'jp'}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "books (+http://www.yourdomain.com)"
@@ -54,9 +83,14 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    "books.middlewares.BooksDownloaderMiddleware": 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+  # "books.middlewares.BooksDownloaderMiddleware": 543,
+  'books.middlewares.ScrapeOpsFakeUserAgentMiddleware': 300,
+  'books.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 300,
+
+  # ScrapeOps IP Rotating
+  'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -66,9 +100,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "books.pipelines.BooksPipeline": 300,
-#}
+ITEM_PIPELINES = {
+  'books.pipelines.CleanBooksPipeline': 300,
+  # 'books.pipelines.SaveToPostgresPipeline': 400,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

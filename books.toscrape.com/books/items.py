@@ -9,6 +9,7 @@ import scrapy
 class BooksItem(scrapy.Item):
     title = scrapy.Field()
     price = scrapy.Field()
+    rating = scrapy.Field()
 
 class BookDetailsItem(scrapy.Item):
     id = scrapy.Field()

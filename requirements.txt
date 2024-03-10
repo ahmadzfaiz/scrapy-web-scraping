@@ -1,4 +1,4 @@
 scrapy
-dotenv
+python-dotenv
 psycopg2-binary
 scrapeops-scrapy-proxy-sdk

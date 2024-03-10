@@ -1,22 +1,25 @@
 import scrapy
 from books.items import BooksItem
 
-class ChildrenBookSpider(scrapy.Spider):
-    name = "children_book"
+class HumorBookSpider(scrapy.Spider):
+    name = "humor_book"
     allowed_domains = ["books.toscrape.com"]
     start_urls = ["https://books.toscrape.com"]
 
     custom_settings = {
         'FEEDS': {
-            'output/children_book.csv': {'format': 'csv'}
-        }
+            'output/humor_book.csv': {'format': 'csv'}
+        },
+        # 'ITEM_PIPELINES': {
+        #     'books.pipelines.CleanBooksPipeline': 300
+        # }
     }
 
     def parse(self, response):
-        children_book_url = response.css('div.side_categories ul li ul li ::attr(href)')[9].get()
-        yield response.follow(url=children_book_url, callback=self.parse_children_book)
+        humor_book_url = response.css('div.side_categories ul li ul li ::attr(href)')[28].get()
+        yield response.follow(url=humor_book_url, callback=self.parse_humor_book)
 
-    def parse_children_book(self, response):
+    def parse_humor_book(self, response):
         books = response.css('article.product_pod')
         data = BooksItem()
 
@@ -32,4 +35,4 @@ class ChildrenBookSpider(scrapy.Spider):
 
         next_page = response.css('li.next a::attr(href)').get()
         if next_page is not None:
-            yield response.follow(url=next_page, callback=self.parse_children_book)
+            yield response.follow(url=next_page, callback=self.parse_humor_book)

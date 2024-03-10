@@ -1,30 +1,30 @@
-price,title
-£54.64,Birdsong: A Story in Pictures
-£36.89,The Bear and the Piano
-£56.13,The Secret of Dreadwillow Carse
-£58.08,The White Cat and the Monk: A Retelling of the Poem “Pangur Bán”
-£13.47,Little Red
-£12.96,Walt Disney's Alice in Wonderland
-£22.08,Twenty Yawns
-£23.57,Rain Fish
-£18.28,Once Was a Time
-£53.95,Luis Paints the World
-£25.08,Nap-a-Roo
-£35.96,The Whale
-£52.87,"Shrunken Treasures: Literary Classics, Short, Sweet, and Silly"
-£34.41,Raymie Nightingale
-£32.38,Playing from the Heart
-£22.54,Maybe Something Beautiful: How Art Transformed a Neighborhood
-£56.07,The Wild Robot
-£48.77,The Thing About Jellyfish
-£43.59,The Lonely Ones
-£26.33,The Day the Crayons Came Home (Crayons)
-£16.26,The Cat in the Hat (Beginner Books B-1)
-£28.54,Red: The True Story of Red Riding Hood
-£37.52,Horrible Bear!
-£10.79,Green Eggs and Ham (Beginner Books B-16)
-£10.62,Counting Thyme
-£10.66,Are We There Yet?
-£52.88,Diary of a Minecraft Zombie Book 1: A Scare of a Dare (An Unofficial Minecraft Book)
-£28.34,Matilda
-£22.85,Charlie and the Chocolate Factory (Charlie Bucket #1)
+price,rating,title
+£54.64,star-rating Three,Birdsong: A Story in Pictures
+£36.89,star-rating One,The Bear and the Piano
+£56.13,star-rating One,The Secret of Dreadwillow Carse
+£58.08,star-rating Four,The White Cat and the Monk: A Retelling of the Poem “Pangur Bán”
+£13.47,star-rating Three,Little Red
+£12.96,star-rating Five,Walt Disney's Alice in Wonderland
+£22.08,star-rating Two,Twenty Yawns
+£23.57,star-rating Three,Rain Fish
+£18.28,star-rating Two,Once Was a Time
+£53.95,star-rating Three,Luis Paints the World
+£25.08,star-rating One,Nap-a-Roo
+£35.96,star-rating Four,The Whale
+£52.87,star-rating Three,"Shrunken Treasures: Literary Classics, Short, Sweet, and Silly"
+£34.41,star-rating Two,Raymie Nightingale
+£32.38,star-rating One,Playing from the Heart
+£22.54,star-rating One,Maybe Something Beautiful: How Art Transformed a Neighborhood
+£56.07,star-rating Three,The Wild Robot
+£48.77,star-rating One,The Thing About Jellyfish
+£43.59,star-rating Five,The Lonely Ones
+£26.33,star-rating Five,The Day the Crayons Came Home (Crayons)
+£16.26,star-rating Two,The Cat in the Hat (Beginner Books B-1)
+£28.54,star-rating Three,Red: The True Story of Red Riding Hood
+£37.52,star-rating Two,Horrible Bear!
+£10.79,star-rating Four,Green Eggs and Ham (Beginner Books B-16)
+£10.62,star-rating One,Counting Thyme
+£10.66,star-rating Three,Are We There Yet?
+£52.88,star-rating Four,Diary of a Minecraft Zombie Book 1: A Scare of a Dare (An Unofficial Minecraft Book)
+£28.34,star-rating One,Matilda
+£22.85,star-rating Three,Charlie and the Chocolate Factory (Charlie Bucket #1)
