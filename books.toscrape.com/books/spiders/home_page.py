@@ -4,7 +4,7 @@ from books.items import BooksItem
 
 class HomePageSpider(scrapy.Spider):
     name = "home_page"
-    allowed_domains = ["book.toscrape.com"]
+    allowed_domains = ["book.toscrape.com", 'proxy.scrapeops.io']
     start_urls = ["https://books.toscrape.com/"]
 
     custom_settings = {

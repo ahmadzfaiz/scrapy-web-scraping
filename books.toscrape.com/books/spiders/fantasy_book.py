@@ -3,7 +3,7 @@ from books.items import BookDetailsItem
 
 class FantasyBookSpider(scrapy.Spider):
     name = "fantasy_book"
-    allowed_domains = ["books.toscrape.com"]
+    allowed_domains = ["books.toscrape.com", 'proxy.scrapeops.io']
     start_urls = ["https://books.toscrape.com"]
 
     custom_settings = {
